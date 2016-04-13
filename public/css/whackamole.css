@@ -22,7 +22,7 @@ body {
 #timeboard {
     background-color: transparent;
     color: red;
-    font-size: 30px;
+    font-size: 50px;
     height: 50px;
     width: 50px;
     margin-top: 250px;
@@ -34,12 +34,28 @@ body {
     height: 50px;
     width: 50px;
     color: red;
-    font-size: 30px;
+    font-size: 40px;
     margin-left: 1110px;
-    margin-top: -68px;
+    margin-top: -48px;
     position: relative;
 }
 
+#high-scoreboard {
+    background-color: transparent;
+    height: 200px;
+    width: 205px;
+    color: red;
+    font-size: 30px;
+    margin-left: 1000px;
+    margin-top: -85px;
+    position: relative;
+}
+
+    /* start button */
+button {
+    margin-left: 500px;
+    margin-top: 30px;
+}
 
     /* game images */
 img {
@@ -51,18 +67,21 @@ img {
 
 
     /* carousel + images */
+.carousel-outer {
+    margin-left: 300px;
+}
 .shown {
     display: inline;
 }
 
 .hidden {
-    display: none;
+    display: inline;
 }
 
 .carousel-inner {
-    height: 100px;
-    width: 200px;
-    margin-top: -65px;
+    height: 230px;
+    width: 600px;
+    margin-top: -85px;
     position: relative;
     float: left;
 }
@@ -72,13 +91,6 @@ img {
     width: 100%;
 }
 
-.previous, .next {
-    float: left;
-    margin-top: -10px;
-}
-.previous {
-    margin-left: 428px;
-}
 
 
 
