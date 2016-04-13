@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+ <html>
+<head>
+    <meta charset="utf-8">
+    <title>Whack-A-Walker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="css/whackamole.css">
+
+</head>
+<body>
+       
+<div class="container">
+
+    <div class="row">
+
+        <div id="timeboard"></div>
+
+        <div class="carousel-outer">
+            <a class="previous" href="#">Previous</a>
+                <div class="carousel-inner">
+                    <img class="shown" src="/img/glenn.jpg">
+                    <img class="hidden" src="/img/caught.png">
+                    <img class="hidden" src="/img/caught2.png">
+                    <img class="hidden" src="/img/caught3.png">
+                    <img class="hidden" src="/img/caught4.png">
+                    <img class="hidden" src="/img/glenn.png">
+                    <img class="hidden" src="/img/caught5.png">
+                </div>
+            <a class="next" href="#">Next</a>
+        </div> <!-- carousel-outter end -->
+
+        <div id="scoreboard">0</div>
+
+    </div>
+
+    <div id="gameboard" class="row">
+            
+        <div id="box1" class="box" data-number="1"><img class"image" src="/img/glenn.png"> </div>
+
+        <div id="box2" class="box" data-number="2"><img class="image" src="/img/glenn.png"> </div>
+
+        <div id="box3" class="box" data-number="3"><img class="image" src="/img/glenn.png"> </div>
+
+        <div id="box4" class="box" data-number="4"><img class="image" src="/img/glenn.png"> </div>
+
+        <div id="box5" class="box" data-number="5"><img class="image" src="/img/glenn.png"> </div>
+            
+        <div id="box6" class="box" data-number="6"><img class="image" src="/img/glenn.png"> </div>
+
+        <div id="box7" class="box" data-number="7"><img class="image" src="/img/glenn.png"> </div>
+
+        <div id="box8" class="box" data-number="8"><img class="image" src="/img/glenn.png"> </div>
+
+        <div id="box9" class="box" data-number="9"><img class="image" src="/img/glenn.png"> </div>
+
+        <div id="box10" class="box" data-number="10"><img class="image" src="/img/glenn.png"> </div>
+
+    </div> <!-- gameboard div end -->
+
+     <div>
+        <button id="start">start</button>
+    </div>
+</div> <!-- container end -->
+
+<!-- start of script -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.2.min.js"integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="crossorigin="anonymous"></script>
+<script>
+
+(function() {
+"use strict";
+    
+$(document).ready(function () {
+
+            // global variables
+        var count = 31;
+        var score = 0;
+        var imgIndex = 0;
+        var keepGoing;
+        var counter;
+        var randomMole;
+        var $hole = $(".row");
+        var $image = $(".image");
+
+
+            // function uses random img + fading in/out + scoreboard
+        function whackItRoller() {
+            var randomImg = getRandom();
+                    var imgMole = setTimeout(function () {
+                        $image.eq(randomImg).show().click(function() {
+                            score++;
+                            $('#scoreboard').html(score);
+                        });
+                    }, 100);
+                    var setTimeoutId = setTimeout(function () {
+                        $image.eq(randomImg).css("display" , "none").off("click");
+                    }, 1400);
+                    console.log(imgMole); 
+        }; // end whackItRoller()
+
+            // function gets the random img
+        function getRandom() {
+            var moleImg = Math.floor(Math.random() * $image.length);
+            keepGoing = moleImg;
+            console.log(moleImg);
+            return moleImg;
+        }; // end getRandom() 
+
+            // game timer
+        function timer() {
+            count--;
+            if (count == 0) {
+                clearInterval(counter);
+                clearInterval(randomMole);   
+            }
+            $("#timeboard").html(count);
+        } // end timer()
+
+            // .click function for start btn (calls the previous 3 functions and will run the game)
+        $("#start").click(function(){
+            count = 31;
+            score = 0;
+            counter = setInterval(timer,1000);
+            randomMole = setInterval(function () {
+                whackItRoller(keepGoing);
+            }, 1500);
+        }); // end ("#start").click 
+
+
+// carousel controls
+        // $(.next).on("click", function() {
+        //     var activeImg = $(".shown");
+        //     var nextActiveImg = activeImg.next();
+
+        // if  (nextActiveImg.length == 0) {
+        //     nextActiveImg = $("carousel-inner img").first();
+        // }
+
+        //     activeImg.removeClass("shown").addClass("hidden").css("z-index", -10);
+        //     nextActiveImg.addClass("shown").removeClass("hidden").css("z-index",20);
+
+        //     e.preventDefault(); 
+        // })
+
+}); // end $(document).ready
+
+})();
+</script>
+</body>
+</html>
