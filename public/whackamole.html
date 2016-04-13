@@ -75,13 +75,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-1.12.2.min.js"integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="crossorigin="anonymous"></script>
 <script>
-
 (function() {
 "use strict";
     
 $(document).ready(function () {
 
-            // global variables
+            // global vars
         var count = 3;
         var score = 0;
         var highscore = localStorage.getItem("highscore");
@@ -166,6 +165,8 @@ $(document).ready(function () {
         if (highscore == null) {
             highscore = 0;
         }
+
+        
             // call highscores on page load and fill scoreboard with local storage score
         highscores();
         $("#high-scoreboard").html("High Score: " + highscore);
