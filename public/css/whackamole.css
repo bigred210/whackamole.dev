@@ -1,0 +1,93 @@
+    /* body */
+body {
+    background: url("/img/walkingdead1.jpg")no-repeat;
+}
+
+
+    /* board / boxes */
+#gameboard {
+    cursor: url(/img/lucille.png),default;
+}
+
+.box {
+    background-color: transparent;
+    height: 80px;
+    width: 100px;
+    margin-top: 30px;
+    margin-left: 120px;
+    float: left;
+    position: relative;
+}
+
+#timeboard {
+    background-color: transparent;
+    color: red;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    margin-top: 250px;
+    margin-left: 1px;
+}
+
+#scoreboard {
+    background-color: transparent;
+    height: 50px;
+    width: 50px;
+    color: red;
+    font-size: 30px;
+    margin-left: 1110px;
+    margin-top: -68px;
+    position: relative;
+}
+
+
+    /* game images */
+img {
+    display: none;
+    width: 100px;
+    height: 80px;
+    position: relative;
+}
+
+
+    /* carousel + images */
+.shown {
+    display: inline;
+}
+
+.hidden {
+    display: none;
+}
+
+.carousel-inner {
+    height: 100px;
+    width: 200px;
+    margin-top: -65px;
+    position: relative;
+    float: left;
+}
+
+.carousel-inner img{
+    height: 100%;
+    width: 100%;
+}
+
+.previous, .next {
+    float: left;
+    margin-top: -10px;
+}
+.previous {
+    margin-left: 428px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
